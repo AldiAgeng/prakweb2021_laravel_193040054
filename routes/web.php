@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,56 +30,7 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/blog', function () {
-
-    $blog_posts = [
-        [
-            'title' => 'Judul Post Pertama',
-            'slug' => 'judul-post-pertama',
-            'author' => 'Aldi Ageng',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nisi iste corporis suscipit architecto quod, inventore hic voluptates quasi numquam laborum dolorum, debitis, minus sed nostrum. Saepe, ipsum unde autem quisquam nesciunt maxime eum ullam fuga facere, accusamus vel quia quaerat repellat vitae id quidem velit nostrum placeat assumenda, explicabo laboriosam voluptatum. Nemo pariatur accusamus, amet nesciunt commodi tempore facere.'
-        ],
-        [
-            'title' => 'Judul Post Kedua',
-            'slug' => 'judul-post-kedua',
-            'author' => 'Ujang',
-            'body' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt molestiae magnam saepe hic numquam. Ab sit dolorum voluptatibus ipsam, doloribus eos eius veniam tempore rem aspernatur officiis saepe quasi. Quae itaque asperiores explicabo adipisci error, laudantium saepe veritatis alias recusandae corporis at illum nemo rerum, velit excepturi laborum neque eius odit ipsum commodi doloremque? Sit saepe vitae quos reprehenderit officiis error labore, unde cum iusto ratione vero aperiam. In itaque nemo atque ut. Optio quaerat quod beatae dolorem quibusdam corrupti!'
-        ],
-    ];
-    return view('posts', [
-        'title' => 'Posts',
-        'posts' => $blog_posts
-    ]);
-});
-
+Route::get('/blog', [PostController::class, 'index']);
 
 // halaman single post
-Route::get('posts/{slug}', function($slug){
-
-    $blog_posts = [
-        [
-            'title' => 'Judul Post Pertama',
-            'slug' => 'judul-post-pertama',
-            'author' => 'Aldi Ageng',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nisi iste corporis suscipit architecto quod, inventore hic voluptates quasi numquam laborum dolorum, debitis, minus sed nostrum. Saepe, ipsum unde autem quisquam nesciunt maxime eum ullam fuga facere, accusamus vel quia quaerat repellat vitae id quidem velit nostrum placeat assumenda, explicabo laboriosam voluptatum. Nemo pariatur accusamus, amet nesciunt commodi tempore facere.'
-        ],
-        [
-            'title' => 'Judul Post Kedua',
-            'slug' => 'judul-post-kedua',
-            'author' => 'Ujang',
-            'body' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt molestiae magnam saepe hic numquam. Ab sit dolorum voluptatibus ipsam, doloribus eos eius veniam tempore rem aspernatur officiis saepe quasi. Quae itaque asperiores explicabo adipisci error, laudantium saepe veritatis alias recusandae corporis at illum nemo rerum, velit excepturi laborum neque eius odit ipsum commodi doloremque? Sit saepe vitae quos reprehenderit officiis error labore, unde cum iusto ratione vero aperiam. In itaque nemo atque ut. Optio quaerat quod beatae dolorem quibusdam corrupti!'
-        ],
-    ];
-
-    $new_post = [];
-    foreach ($blog_posts as $post) {
-        if($post['slug'] == $slug){
-            $new_post = $post;
-        }
-    }
-
-    return view('post', [
-        'title' => 'Single Post',
-        'post' => $new_post
-    ]);
-});
+Route::get('posts/{slug}', [PostController::class, 'show']);
