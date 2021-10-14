@@ -25,7 +25,7 @@ Route::get('/about', function () {
     return view('about', [
         'title' => 'About',
         'name' => 'Aldi Ageng',
-        'email' => 'aldiageng...@gmail.com',
+        'email' => 'aldiageng@gmail.com',
         'image' => 'gambar.png'
     ]);
 });
