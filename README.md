@@ -1,10 +1,11 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-##Acount
+<b>Account</b>
 <p>User Admin: </p>
 <li>email: aldiageng@gmail.com</li>
 <li>password : password</li>
 
+<br>
 <p>User: </p>
 <li>email: puji30@example.com</li>
 <li>password: password</li>
